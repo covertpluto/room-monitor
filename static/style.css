@@ -1,0 +1,149 @@
+/* TEXT */
+
+h1 {
+    color: #ffd5c6;
+    text-align: center;
+    font-family: 'Bowlby One SC', cursive;
+    font-size: 60px;
+    margin: 0px;
+}
+h3 {
+    color: #ffd5c6;
+    text-align: center;
+    font-family: 'Bowlby One SC', cursive;
+    font-size: 35px;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+h4 {
+    color: #a32c00;
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+    font-size: 35px;
+    margin: 0;
+    position: absolute;
+    right: 50%;
+    bottom: 50%;
+    transform: translate(50%, 50%);
+}
+h6 {
+    color: #a32c00;
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+    margin: 0;
+    position: absolute;
+    right: auto;
+    left:auto;
+}
+
+
+/* LAYOUT */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffa17f;
+    padding: 0;
+    margin: 0;
+}
+
+.content {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 25%;
+    margin-top: 15px;
+}
+
+.header {
+    background-color: #dd4108;
+    padding: 20px;
+    margin: 0 5px 15px 5px;
+    border-radius: 15px;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+}
+.item {
+    background-color: #f37446;
+    margin: 0 5px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    width: 50%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.fact {
+    height: 200px;
+    padding: 10px;
+    background-color: #ffd5c6;
+    border: 5px solid #a32c00;
+    position: relative;
+}
+
+.full {
+    background-color: #f37446;
+    margin: 0 5px 15px 5px;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.hidden{
+display: none;}
+
+.expandable:hover + .hidden{
+display: block;
+}
+
+button {
+    height: auto;
+    padding: 10px;
+    background-color: #ffd5c6;
+    border: 5px solid #a32c00;
+    color: #a32c00;
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+    font-size: 35px;
+    margin: 0;
+    font-weight: bold;
+}
+button:hover {
+    background-color: #dd4108;
+    color: #ffd5c6;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.balert {
+    position: fixed;
+    bottom: 0;
+    padding: 15px;
+    background-color: #ffd5c6;
+    width: 100%;
+    border-top: 5px solid #a32c00;
+}
+.balert h3 {
+    color: #a32c00 !important;
+}
+
+@media only screen and (max-width: 1360px) {
+    .content {
+        width: 75%;
+        margin-left: 12.5%;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .content {
+        width: 100%;
+        margin-left: 0;
+        padding: 5px;
+    }
+}

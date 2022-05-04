@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <meta http-equiv="refresh" content="1">
+
+	<link href="{{ url_for( 'static', filename='style.css') }}" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Titillium+Web:wght@900&family=Bowlby+One+SC&family=Rubik&family=Titillium+Web:wght@900&display=swap" rel="stylesheet">
+    </head>
+    <body onkeypress="settings();">
+
+        <div class="content">
+            <div class="header">
+                <h1>{{ rn }}</h1>
+
+            </div>
+
+            <div class="info">
+                <div class="item">
+                    <h3>TEMPERATURE</h3>
+                    <div class="fact" id="temp"></div>
+                </div>
+
+                <div class="item">
+                    <h3>HUMIDITY</h3>
+                    <div class="fact" id="hum"></div>
+                </div>
+
+
+            </div>
+          
+            <div class="full" id="lightS">
+            </div>
+
+            <div class="full">
+                <h3>HEAT LOSS</h3>
+                <div class="fact" id="loss">
+                    
+                </div>
+            </div>
+          
+        </div>
+
+        <script>
+
+//THINGS
+
+var temp = document.getElementById("temp");
+var hum = document.getElementById("hum");
+var lightS = document.getElementById("lightS");
+var loss = document.getElementById("loss");
+
+function updateAll(){
+getText1();
+getText2();
+getText3();
+getText4();
+};
+
+
+async function getText1() {
+
+    temp.innerHTML = "<h4>" + {{ temperature }} + "&#176;C</h4>";
+
+};
+async function getText2() {
+
+    hum.innerHTML = "<h4>" + {{ humidity }} + "%</h4>";
+
+};
+async function getText3() {
+
+    var heatloss = {{ heatloss }};
+    if (heatloss <=5) {
+      loss.innerHTML = "<h4>" + heatloss + "&#176;C - OK</h4>";
+      loss.style.backgroundColor = "#ffd5c6";
+      loss.firstChild.style.color = "#a32c00";
+      loss.style.borderColor = "#a32c00";
+    } else if (heatloss <= 10) {
+      loss.innerHTML = "<h4>" + heatloss + "&#176;C - Possible heat loss</h4>";
+      loss.style.backgroundColor = "#ffa17f";
+      loss.style.borderColor = "#a32c00";
+      loss.firstChild.style.color = "#a32c00";
+    } else if (heatloss > 10) {
+      loss.innerHTML = "<h4>" + heatloss + "&#176;C - ENERGY BILL GO BRRRRRRR</h4>";
+      loss.style.backgroundColor = "#a32c00";
+      loss.style.borderColor = "#ffd5c6";
+
+      loss.firstChild.style.color = "#ffd5c6";
+    };
+
+};
+async function getText4() {
+
+    if ({{ lights }} == 1) {
+      lightS.innerHTML = "<h3>LIGHTS ARE ON</h3>";
+    } else {
+      lightS.innerHTML = "<h3>LIGHTS ARE OFF</h3>";
+    }
+
+};
+
+
+
+updateAll();
+
+function settings(){
+
+location.href = "/settings";
+};
+
+	</script>
+
+<span class="expandable">.</span>
+<span class="hidden">Press any key to open settings...</span>
+    </body>
+</html>
