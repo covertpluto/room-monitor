@@ -27,7 +27,7 @@ sudo echo "
 
  [Service]
  Type=idle
- ExecStart=/bin/run
+ ExecStart=/usr/bin/python /home/pi/server.py
 
  [Install]
  WantedBy=multi-user.target" >> /lib/systemd/system/roommonitor.service
